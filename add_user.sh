@@ -13,12 +13,12 @@ groups=$(cat /etc/group | cut -d: -f1)
 info_user=$(zenity --forms 						\
 			--width=420 --height=420 			\
 			--title="Tela Principal" 			\
-            --add-entry="Nome: " 				\
-            --add-entry="Sobrenome: " 			\
+            		--add-entry="Nome: " 				\
+          		--add-entry="Sobrenome: " 			\
 			--add-entry="Usuario: "				\
-            --add-password="Senha: " 			\
-            --add-password="Confirmar Senha: " 	\
-            --separator=";"						\
+           		--add-password="Senha: " 			\
+           		--add-password="Confirmar Senha: " 		\
+           		--separator=";"					\
 			)
 
 [ $? != 0 ] && exit 1
@@ -29,9 +29,9 @@ info_user=$(zenity --forms 						\
 
 info_groups=$(zenity --list	 					\
 			--width=420 --height=420 			\
-			--checklist 						\
-			--column "" 						\
-			--column "Grupos" 					\
+			--checklist 					\
+			--column "" 					\
+			--column "Grupos" 				\
 			$(for i in ${groups}; 				\
 			do echo FALSE $i ;done)				\
 			)
